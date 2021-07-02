@@ -32,6 +32,6 @@ int main()
 
 	//print the odd and even totals;
 
-
+	return 0;
 }
 

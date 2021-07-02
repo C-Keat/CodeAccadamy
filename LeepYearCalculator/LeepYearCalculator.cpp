@@ -22,10 +22,14 @@
 #include <string>
 #include <cmath>
 
+
+
+
 int main()
 {
-
-    //set a year variable
+#include <iostream>
+    
+   // set a year variable
     int year;
     int stringLength;
 
