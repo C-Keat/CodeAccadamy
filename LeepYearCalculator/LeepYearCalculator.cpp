@@ -28,48 +28,61 @@ int main()
     //set a year variable
     int year;
     int stringLength;
-    
-    //get input to see what year it is cin
-    //check to see if it is a 4 digit number - research how .size?
+
+    bool isLeapYear;
+
+    std::cout << "Please find a leap year" << std::endl;
+
     do
     {
-        std::cout << "Please type a year: ";
-        std::cin >> year;
+        //get input to see what year it is cin
+        //check to see if it is a 4 digit number - research how .size?
+        do
+        {
+            std::cout << "Please type a year: ";
+            std::cin >> year;
 
-        stringLength = std::to_string(year).length();
+            stringLength = std::to_string(year).length();
 
-        std::cout << "The length of year was: " << stringLength << std::endl;
+            std::cout << "The length of year was: " << stringLength << std::endl;
 
-        if (stringLength != 4) {
-            std::cout << "Please re-enter a year" << std::endl;
-        }
+            if (stringLength != 4) {
+                std::cout << "Please re-enter a year" << std::endl;
+            }
 
-    } while (stringLength != 4);
-    
-    //1. If the year is evenly divisible by 4, go to step 2. Otherwise, go to step 5.
-    //2. If the year is evenly divisible by 100, go to step 3. Otherwise, go to step 4.
-    //3. If the year is evenly divisible by 400, go to step 4. Otherwise, go to step 5.
-    //4. The year is a leap year(it has 366 days).
-    //5. The year is not a leap year(it has 365 days).
-    
-    //calculate if the year is a leap year
-    //display if this year is a leap year
-    if (year % 4 == 0) { //step one
-        if (year % 100 == 0) {//step two
-            if (year % 400 == 0) {//step tree
-                std::cout << "This is a leap year - it has 366 days" << std::endl;//step four
+        } while (stringLength != 4);
+
+        //1. If the year is evenly divisible by 4, go to step 2. Otherwise, go to step 5.
+        //2. If the year is evenly divisible by 100, go to step 3. Otherwise, go to step 4.
+        //3. If the year is evenly divisible by 400, go to step 4. Otherwise, go to step 5.
+        //4. The year is a leap year(it has 366 days).
+        //5. The year is not a leap year(it has 365 days).
+
+        //calculate if the year is a leap year
+        //display if this year is a leap year
+        if (year % 4 == 0) { //step one
+            if (year % 100 == 0) {//step two
+                if (year % 400 == 0) {//step tree
+                    std::cout << "This is a leap year - it has 366 days" << std::endl;//step four
+                    isLeapYear = true;
+                }
+                else {
+                    std::cout << "The year is not a leap year - 365 days" << std::endl;//step five
+                    isLeapYear = false;
+                }
             }
             else {
-                std::cout << "The year is not a leap year - 365 days" << std::endl;//step five
+                std::cout << "This is a leap year - it has 366 days" << std::endl;//step four
+                isLeapYear = true;
             }
         }
         else {
-            std::cout << "This is a leap year - it has 366 days" << std::endl;//step four
+            std::cout << "The year is not a leap year - 365 days" << std::endl;//step five
+            isLeapYear = false;
         }
-    }
-    else {
-        std::cout << "The year is not a leap year - 365 days" << std::endl;//step five
-    }
+
+    } while (isLeapYear != true);
+    
 
 }
 
