@@ -11,27 +11,62 @@
 //There are 3 criteria that must be taken into account to identify a leap year :
 
     //If the year can be evenly divided by 4 then it is a leap year, however…
+
     //If that year can be evenly divided by 100, and it is not evenly divided by 400, then it is NOT a leap year.
+
     //If that year is evenly divisible by 400, then it is a leap year.
+
 //Take some time to researchand brainstorm before starting to write the code!
 
 #include <iostream>
+#include <string>
+#include <cmath>
 
 int main()
 {
 
     //set a year variable
+    int year;
+    int stringLength;
+    
     //get input to see what year it is cin
-
     //check to see if it is a 4 digit number - research how .size?
+    do
+    {
+        std::cout << "Please type a year: ";
+        std::cin >> year;
 
-    //calculate if the year is a leap year - research how to do this
+        stringLength = std::to_string(year).length();
 
+        std::cout << "The length of year was: " << stringLength << std::endl;
+
+        if (stringLength != 4) {
+            std::cout << "Please re-enter a year" << std::endl;
+        }
+
+    } while (stringLength != 4);
+    
+
+    
+    //calculate if the year is a leap year
     //display if this year is a leap year
+    if (year % 4 == 0) { //step one
+        if (year % 100 == 0) {//step two
+            if (year % 400 == 0) {//step tree
+                std::cout << "This is a leap year - it has 366 days" << std::endl;//step four
+            }
+            else {
+                std::cout << "The year is not a leap year - 365 days" << std::endl;//step five
+            }
+        }
+        else {
+            std::cout << "This is a leap year - it has 366 days" << std::endl;//step four
+        }
+    }
+    else {
+        std::cout << "The year is not a leap year - 365 days" << std::endl;//step five
+    }
 
-
-
-    std::cout << "Hello World!\n";
 }
 
 
