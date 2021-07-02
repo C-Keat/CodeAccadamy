@@ -4,7 +4,7 @@
 // Define is_palindrome() here:
 bool is_palindrome(std::string text) {
 
-	//create storage for bacwards word?
+	//create storage orginal word
 	std::string orginalText = text;
 	bool isSame = false;
 	int wordLength = text.length();
